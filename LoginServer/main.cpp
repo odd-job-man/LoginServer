@@ -7,7 +7,7 @@ LoginServer g_ls;
 int main()
 {
 	g_ls.Start();
-	Sleep(INFINITE);
-	//! or client.commit(); for asynchronous call}
+	g_ls.WaitUntilShutDown();
+	return 0;
 }
 
