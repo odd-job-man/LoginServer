@@ -11,6 +11,7 @@
 #include "MyJob.h"
 #include "Logger.h"
 #include "NetSession.h"
+#include <RedisClientWrapper.h>
 #pragma comment(lib,"libmysql.lib")
 
 using cpp_redis::client;
@@ -39,16 +40,10 @@ void LoginServer::Start()
     bLoopBackTest_ = (int)_wtoi((LPCWSTR)pStart);
     ReleaseParser(psr);
 
-    redisClientIdx_ = TlsAlloc();
-    TLS_ASSERT(redisClientIdx_);
-
     // 더미들의 IP주소 구하기
     if (bLoopBackTest_ == 0)
     {
-		ZeroMemory(&DummyIP1Point2_, sizeof(SOCKADDR_IN));
 		InetPtonW(AF_INET, L"10.0.1.2", &DummyIP1Point2_.sin_addr);
-
-		ZeroMemory(&DummyIP2Point2_, sizeof(SOCKADDR_IN));
 		InetPtonW(AF_INET, L"10.0.2.2", &DummyIP2Point2_.sin_addr);
     }
 
@@ -57,16 +52,16 @@ void LoginServer::Start()
 
     ResumeThread(hAcceptThread_);
 
-    MonitoringUpdate* pMonitor = new MonitoringUpdate{ hcp_,1000,3 };
-    Timer::Reigster_UPDATE(pMonitor);
-    pMonitor->RegisterMonitor(this);
+    pConsoleMonitor_ = new MonitoringUpdate{ hcp_,1000,3 };
+    Timer::Reigster_UPDATE(pConsoleMonitor_);
+    pConsoleMonitor_->RegisterMonitor(this);
 
     pLanClient_ = new CMClient{ L"LoginLanClientConfig.txt",SERVERNUM::LOGIN };
     pLanClient_->Start();
     Timer::Start();
 }
 
-BOOL LoginServer::OnConnectionRequest()
+BOOL LoginServer::OnConnectionRequest(const SOCKADDR_IN* pSockAddrIn)
 {
     return TRUE;
 }
@@ -148,17 +143,8 @@ void LoginServer::OnRecv(ULONGLONG id, Packet* pPacket)
     }
     else
     {
-        NetSession* pSession = pSessionArr_ + NetSession::GET_SESSION_INDEX(id);
-        SOCKADDR_IN addr;
-        ZeroMemory(&addr, sizeof(addr));
-        int len = sizeof(SOCKADDR_IN);
-        if (0 != getpeername(pSession->sock_, (SOCKADDR*)&addr, &len))
-        {
-            LOG(L"ERROR", SYSTEM, TEXTFILE, L"getpeername failed ErrCode : %u", WSAGetLastError());
-            __debugbreak();
-        }
-
-        if (addr.sin_addr.S_un.S_addr == DummyIP1Point2_.sin_addr.S_un.S_addr)
+        const SOCKADDR_IN* pAddr = GetSockAddrIn(id);
+        if (pAddr->sin_addr.S_un.S_addr == DummyIP1Point2_.sin_addr.S_un.S_addr)
         {
             MAKE_CS_LOGIN_RES_LOGIN(id, accountNo, 1, ID, NICK, onePointOne, ChatServerPort_, onePointOne, ChatServerPort_, sp);
         }
@@ -183,19 +169,14 @@ void LoginServer::OnPost(void* order)
 void LoginServer::OnLastTaskBeforeAllWorkerThreadEndBeforeShutDown()
 {
     pLanClient_->ShutDown();
+    delete pLanClient_;
 }
 
-cpp_redis::client* LoginServer::GetRedisClient()
+void LoginServer::OnResourceCleanAtShutDown()
 {
-    client* pClient = (client*)TlsGetValue(redisClientIdx_);
-    if (!pClient)
-    {
-        pClient = new client;
-        pClient->connect();
-        TlsSetValue(redisClientIdx_, pClient);
-    }
-    return pClient;
+    delete pConsoleMonitor_;
 }
+
 
 void LoginServer::OnMonitor()
 {
@@ -244,7 +225,7 @@ void LoginServer::OnMonitor()
 
     printf(
         "Elapsed Time : %02lluD-%02lluH-%02lluMin-%02lluSec\n"
-        "Remaining Home Key Push To Shut Down : %d\n"
+        "Remaining PgUp Key Push To Shut Down : %d\n"
         "MonitorServerConnected : %s\n"
         "Packet Pool Alloc Capacity : %d\n"
         "Packet Pool Alloc UseSize: %d\n"
@@ -283,7 +264,7 @@ void LoginServer::OnMonitor()
         sdfCleanFlag = 0;
     }
 
-    if (GetAsyncKeyState(VK_HOME) & 0x0001)
+    if (GetAsyncKeyState(VK_PRIOR) & 0x0001)
     {
         --shutDownFlag;
         if (shutDownFlag == 0)

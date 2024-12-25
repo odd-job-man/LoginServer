@@ -180,6 +180,7 @@
     <ClInclude Include="..\..\ServerCommon\ServerCommon\NetWork\Packet.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\NetWork\RingBuffer.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Parser\Parser.h" />
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\RedisClientWrapper.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Timer.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.h" />
     <ClInclude Include="LoginServer.h" />

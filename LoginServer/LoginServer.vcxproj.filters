@@ -169,6 +169,9 @@
     <ClInclude Include="..\..\LanClient\LanClient\LanClient.h">
       <Filter>LanClient</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\RedisClientWrapper.h">
+      <Filter>ServerCommon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\ServerCommon\ServerCommon\DB\libcrypto-3-x64.dll">
