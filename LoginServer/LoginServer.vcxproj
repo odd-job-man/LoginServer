@@ -132,7 +132,8 @@
       <ConformanceMode>true</ConformanceMode>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\dhtmd\OneDrive\문서\GitHub\LanClient\LanClient;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\dhtmd\OneDrive\문서\GitHub\LanClient\LanClient;C:\Users\dhtmd\OneDrive\문서\GitHub\ServerCommon\ServerCommon\UpdateAndScheduler;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/D _DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,27 +143,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\ContentsBase.cpp" />
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\GameServer.cpp" />
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\GameSession.cpp" />
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\ParallelContent.cpp" />
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\SendThread.cpp" />
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\SerialContent.cpp" />
     <ClCompile Include="..\..\LanClient\LanClient\LanClient.cpp" />
     <ClCompile Include="..\..\LanClient\LanClient\LanClientSession.cpp" />
-    <ClCompile Include="..\..\NetServer\NetServer\NetServer\NetServer.cpp" />
-    <ClCompile Include="..\..\NetServer\NetServer\NetServer\NetSession.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\CMClient.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\DataStructure\CLinkedList.cpp" />
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThreadBase.cpp" />
+    <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\QueryFactory.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\Monitor\HMonitor.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\NetWork\RingBuffer.cpp" />
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Timer.cpp" />
+    <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Scheduler.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.cpp" />
+    <ClCompile Include="LoginContent.cpp" />
     <ClCompile Include="LoginServer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ContentsBase.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ContentsType.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ErrType.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\GameServer.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\GameSession.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\Logger.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ParallelContent.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\SendThread.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\SerialContent.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ThreadMessage.h" />
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ThreadMsg.h" />
     <ClInclude Include="..\..\LanClient\LanClient\LanClient.h" />
     <ClInclude Include="..\..\LanClient\LanClient\LanClientSession.h" />
-    <ClInclude Include="..\..\NetServer\NetServer\NetServer\IHandler.h" />
-    <ClInclude Include="..\..\NetServer\NetServer\NetServer\NetServer.h" />
-    <ClInclude Include="..\..\NetServer\NetServer\NetServer\NetSession.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\CMClient.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\CommonProtocol.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CAddressTranslator.h" />
@@ -171,7 +185,7 @@
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeQueue.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeStack.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CTlsObjectPool.h" />
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThreadBase.h" />
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\QueryFactory.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Job\MyJob.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Logger\Logger.h" />
@@ -181,8 +195,10 @@
     <ClInclude Include="..\..\ServerCommon\ServerCommon\NetWork\RingBuffer.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Parser\Parser.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\RedisClientWrapper.h" />
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Timer.h" />
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Scheduler.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.h" />
+    <ClInclude Include="LoginContent.h" />
+    <ClInclude Include="LoginPlayer.h" />
     <ClInclude Include="LoginServer.h" />
   </ItemGroup>
   <ItemGroup>

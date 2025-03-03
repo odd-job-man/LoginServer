@@ -5,16 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일\LoginHeader">
-      <UniqueIdentifier>{b7d03140-7d24-42be-bacc-f965b85a0e42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\LoginCPP">
-      <UniqueIdentifier>{9c3bb9f4-23dc-4980-a40f-850914fa3fd8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ServerCommon">
       <UniqueIdentifier>{8b431645-7671-4e8b-9263-a2ef8634a40d}</UniqueIdentifier>
     </Filter>
@@ -42,20 +32,17 @@
     <Filter Include="ServerCommon\UpdateAndTimer">
       <UniqueIdentifier>{c71a7542-22df-4803-bf4c-99e3c0a21023}</UniqueIdentifier>
     </Filter>
-    <Filter Include="NetServer">
-      <UniqueIdentifier>{0a6317cf-234f-4465-b873-7de1ee133675}</UniqueIdentifier>
-    </Filter>
     <Filter Include="LanClient">
       <UniqueIdentifier>{842efa7c-d467-4afe-87ef-2e694acdae7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameServer">
+      <UniqueIdentifier>{95f9d0e6-e7de-4982-9f53-986995856b6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoginServer">
+      <UniqueIdentifier>{e9d8e431-7dd5-46a5-85e9-5bb6bb7693b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LoginServer.cpp">
-      <Filter>소스 파일\LoginCPP</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일\LoginCPP</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\ServerCommon\ServerCommon\DataStructure\CLinkedList.cpp">
       <Filter>ServerCommon\DataStructure</Filter>
     </ClCompile>
@@ -68,21 +55,6 @@
     <ClCompile Include="..\..\ServerCommon\ServerCommon\NetWork\RingBuffer.cpp">
       <Filter>ServerCommon\NetWork</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.cpp">
-      <Filter>ServerCommon\UpdateAndTimer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Timer.cpp">
-      <Filter>ServerCommon\UpdateAndTimer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThreadBase.cpp">
-      <Filter>ServerCommon\DB</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\NetServer\NetServer\NetServer\NetSession.cpp">
-      <Filter>NetServer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\NetServer\NetServer\NetServer\NetServer.cpp">
-      <Filter>NetServer</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\ServerCommon\ServerCommon\CMClient.cpp">
       <Filter>ServerCommon</Filter>
     </ClCompile>
@@ -92,11 +64,44 @@
     <ClCompile Include="..\..\LanClient\LanClient\LanClient.cpp">
       <Filter>LanClient</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\SerialContent.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\ContentsBase.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\GameServer.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\ParallelContent.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\SendThread.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameServerLib\GameServerLib\GameSession.cpp">
+      <Filter>GameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginServer.cpp">
+      <Filter>LoginServer</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginContent.cpp">
+      <Filter>LoginServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Scheduler.cpp">
+      <Filter>ServerCommon\UpdateAndTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.cpp">
+      <Filter>ServerCommon\UpdateAndTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.cpp">
+      <Filter>ServerCommon\DB</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LoginServer.h">
-      <Filter>헤더 파일\LoginHeader</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeObjectPool.h">
       <Filter>ServerCommon\DataStructure</Filter>
     </ClInclude>
@@ -136,26 +141,8 @@
     <ClInclude Include="..\..\ServerCommon\ServerCommon\NetWork\Packet.h">
       <Filter>ServerCommon\NetWork</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Timer.h">
-      <Filter>ServerCommon\UpdateAndTimer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.h">
-      <Filter>ServerCommon\UpdateAndTimer</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Parser\Parser.h">
       <Filter>ServerCommon\Parser</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThreadBase.h">
-      <Filter>ServerCommon\DB</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\NetServer\NetServer\NetServer\NetServer.h">
-      <Filter>NetServer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\NetServer\NetServer\NetServer\NetSession.h">
-      <Filter>NetServer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\NetServer\NetServer\NetServer\IHandler.h">
-      <Filter>NetServer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\CommonProtocol.h">
       <Filter>ServerCommon</Filter>
@@ -171,6 +158,57 @@
     </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\RedisClientWrapper.h">
       <Filter>ServerCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\SerialContent.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ThreadMessage.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ThreadMsg.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ContentsBase.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ContentsType.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ErrType.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\GameServer.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\GameSession.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\Logger.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\ParallelContent.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameServerLib\GameServerLib\SendThread.h">
+      <Filter>GameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginContent.h">
+      <Filter>LoginServer</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPlayer.h">
+      <Filter>LoginServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\Scheduler.h">
+      <Filter>ServerCommon\UpdateAndTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\UpdateAndTimer\UpdateBase.h">
+      <Filter>ServerCommon\UpdateAndTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginServer.h">
+      <Filter>LoginServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.h">
+      <Filter>ServerCommon\DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
