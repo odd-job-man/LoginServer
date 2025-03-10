@@ -3,13 +3,8 @@
 #include <WS2tcpip.h>
 #include "LoginServer.h"
 #include "LoginPlayer.h"
-#include "QueryFactory.h"
 #include "Packet.h"
 #include "CommonProtocol.h"
-#include "Parser.h"
-#include "Assert.h"
-#include "Logger.h"
-#include "RedisClientWrapper.h"
 #include "LoginServer.h"
 #include "LoginContent.h"
 

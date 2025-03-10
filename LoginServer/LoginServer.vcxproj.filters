@@ -14,9 +14,6 @@
     <Filter Include="ServerCommon\DB">
       <UniqueIdentifier>{ff45bbc4-1043-4c37-81ae-0b241ceb5d9f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ServerCommon\Job">
-      <UniqueIdentifier>{799cc0ef-9f79-48d6-a288-26e714355a32}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ServerCommon\Logger">
       <UniqueIdentifier>{e27a3fde-a34c-4130-903b-f3cd3220c33d}</UniqueIdentifier>
     </Filter>
@@ -76,9 +73,6 @@
     <ClCompile Include="..\..\GameServerLib\GameServerLib\ParallelContent.cpp">
       <Filter>GameServer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\GameServerLib\GameServerLib\SendThread.cpp">
-      <Filter>GameServer</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\GameServerLib\GameServerLib\GameSession.cpp">
       <Filter>GameServer</Filter>
     </ClCompile>
@@ -97,14 +91,8 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.cpp">
-      <Filter>ServerCommon\DB</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeObjectPool.h">
-      <Filter>ServerCommon\DataStructure</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeQueue.h">
       <Filter>ServerCommon\DataStructure</Filter>
     </ClInclude>
@@ -122,9 +110,6 @@
     </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\QueryFactory.h">
       <Filter>ServerCommon\DB</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\Job\MyJob.h">
-      <Filter>ServerCommon\Job</Filter>
     </ClInclude>
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Logger\Logger.h">
       <Filter>ServerCommon\Logger</Filter>
@@ -189,9 +174,6 @@
     <ClInclude Include="..\..\GameServerLib\GameServerLib\ParallelContent.h">
       <Filter>GameServer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\GameServerLib\GameServerLib\SendThread.h">
-      <Filter>GameServer</Filter>
-    </ClInclude>
     <ClInclude Include="LoginContent.h">
       <Filter>LoginServer</Filter>
     </ClInclude>
@@ -206,9 +188,6 @@
     </ClInclude>
     <ClInclude Include="LoginServer.h">
       <Filter>LoginServer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.h">
-      <Filter>ServerCommon\DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

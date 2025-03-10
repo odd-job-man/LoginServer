@@ -147,13 +147,11 @@
     <ClCompile Include="..\..\GameServerLib\GameServerLib\GameServer.cpp" />
     <ClCompile Include="..\..\GameServerLib\GameServerLib\GameSession.cpp" />
     <ClCompile Include="..\..\GameServerLib\GameServerLib\ParallelContent.cpp" />
-    <ClCompile Include="..\..\GameServerLib\GameServerLib\SendThread.cpp" />
     <ClCompile Include="..\..\GameServerLib\GameServerLib\SerialContent.cpp" />
     <ClCompile Include="..\..\LanClient\LanClient\LanClient.cpp" />
     <ClCompile Include="..\..\LanClient\LanClient\LanClientSession.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\CMClient.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\DataStructure\CLinkedList.cpp" />
-    <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\DB\QueryFactory.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\Monitor\HMonitor.cpp" />
     <ClCompile Include="..\..\ServerCommon\ServerCommon\NetWork\RingBuffer.cpp" />
@@ -171,7 +169,6 @@
     <ClInclude Include="..\..\GameServerLib\GameServerLib\GameSession.h" />
     <ClInclude Include="..\..\GameServerLib\GameServerLib\Logger.h" />
     <ClInclude Include="..\..\GameServerLib\GameServerLib\ParallelContent.h" />
-    <ClInclude Include="..\..\GameServerLib\GameServerLib\SendThread.h" />
     <ClInclude Include="..\..\GameServerLib\GameServerLib\SerialContent.h" />
     <ClInclude Include="..\..\GameServerLib\GameServerLib\ThreadMessage.h" />
     <ClInclude Include="..\..\GameServerLib\GameServerLib\ThreadMsg.h" />
@@ -181,13 +178,10 @@
     <ClInclude Include="..\..\ServerCommon\ServerCommon\CommonProtocol.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CAddressTranslator.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLinkedList.h" />
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeObjectPool.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeQueue.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CLockFreeStack.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DataStructure\CTlsObjectPool.h" />
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\DBWriteThread.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\DB\QueryFactory.h" />
-    <ClInclude Include="..\..\ServerCommon\ServerCommon\Job\MyJob.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Logger\Logger.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Monitor\HMonitor.h" />
     <ClInclude Include="..\..\ServerCommon\ServerCommon\Monitor\Monitorable.h" />

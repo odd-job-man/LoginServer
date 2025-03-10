@@ -27,7 +27,6 @@ private:
 
 	// Monitorable Override
 	virtual void OnMonitor() override;
-//	WCHAR ipStr_[16];
 public:
 	SOCKADDR_IN DummyIP1Point2_;
 	SOCKADDR_IN DummyIP2Point2_;
